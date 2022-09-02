@@ -27,6 +27,7 @@ Session(app)
 db = SQL("sqlite:///finance.db")
 
 # Make sure API key is set
+os.environ["API_KEY"] = "pk_456ad0c146544e88aa27e9617c2cec35"
 if not os.environ.get("API_KEY"):
     raise RuntimeError("API_KEY not set")
 
