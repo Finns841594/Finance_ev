@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-start">Symbol </th>
+                <th class="text-end">Shares </th>
+                <th class="text-end">Trans Price </th>
+                <th class="text-end">Time </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for trans_inf in trans_inf_list %}
+                <tr>
+                    <td class="text-start">{{ trans_inf['symbol_of_stocks'] }}</td>
+                    <td class="text-end">{{ trans_inf['amount'] }}</td>
+                    <td class="text-end">{{ trans_inf['trans_price'] }}</td>
+                    <td class="text-end">{{ trans_inf['timestamp'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+{% endblock %}

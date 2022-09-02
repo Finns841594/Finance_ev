@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-start">Symbol </th>
+                <th class="text-start">Name </th>
+                <th class="text-end">Shares </th>
+                <th class="text-end">Current Price </th>
+                <th class="text-end">TOTAL </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock_inf in stock_inf_list %}
+                <tr>
+                    <td class="text-start">{{ stock_inf['symbol'] }}</td>
+                    <td class="text-start">{{ stock_inf['name'] }}</td>
+                    <td class="text-end">{{ stock_inf['shares'] }}</td>
+                    <td class="text-end">{{ stock_inf['price'] }}</td>
+                    <td class="text-end">{{ stock_inf['cur_total'] }}</td>
+                    <td>
+                        <form action="/buymore" method="post">
+                        <input name="buyingshare" type="hidden" value="{{ stock_inf['symbol'] }}">
+                        <input type="submit" value="buy 10 shares">
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="4">Cash </td>
+                <td class="border-0 text-end">{{ cash }}</td>
+            </tr>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="4">TOTAL </td>
+                <td class="border-0 text-end">{{ total }} </td>
+            </tr>
+        </tfoot>
+    </table>
+{% endblock %}

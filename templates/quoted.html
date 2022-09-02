@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Company Name </th>
+                <th>Stock Current Price </th>
+                <th>Stock Symbol </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ stock_inf['name'] }}</td>
+                <td>{{ stock_inf['price'] }}</td>
+                <td>{{ stock_inf['symbol'] }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+{% endblock %}
